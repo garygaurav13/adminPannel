@@ -8,9 +8,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <!-- <div class="image">
-          <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div> -->
+        <div class="image">
+          <img src="assets/dist/img/icon.png" class="img-circle elevation-2" alt="User Image">
+        </div> 
         <div class="info">
           <a href="#" class="d-block">Machinerytrader</a>
         </div>
@@ -45,7 +45,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
                 <i class="fas fa-angle-left right"></i>
@@ -53,13 +53,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="users.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Users</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="subAdmin.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sub-Admin</p>
                 </a>
@@ -67,8 +67,8 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="user.php" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+            <a href="dealers.php" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Dealers
                 <i class="fas fa-angle-left right"></i>

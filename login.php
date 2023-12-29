@@ -39,6 +39,7 @@ include('includes/header.php');
                         </div>
                         
                         <button type="submit" name="login_btn" class="btn btn-primary">Submit</button>
+                        <a href="password-reset.php" class="float-end">Forgot Your Password</a>
                     </form>
                     </div>
                 </div>

@@ -58,11 +58,12 @@ elseif(isset($_POST['login_btn']))
         $username = $userdata['firstname'];
         $useremail = $userdata['email'];
         $role = $userdata['role'];
-        // print_r($username);
-        // die();
+        $id = $userdata['id'];
+        
         $_SESSION['auth_user']= [
             'firstname' => $username,
-            'email' => $useremail
+            'email' => $useremail,
+            'id' => $id
         ];
         $_SESSION['role'] = $role;
 

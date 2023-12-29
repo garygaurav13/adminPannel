@@ -3,21 +3,8 @@ session_start();
 include('../middleware/adminMiddlewere.php'); 
 include('includes/header.php');
 ?>
-<?php
-    $del_id = $_GET['del'];
-    // sql to delete a record
-
-    if(isset($_GET['del'])) {
-      $sql1 = "DELETE FROM users WHERE id=$del_id";
-  
-      if ($con->query($sql1) === TRUE) {
-        header('user.php');
-      } 
-
-    }
-?>
  <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper">
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -28,7 +15,7 @@ include('includes/header.php');
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">All Users</li>
+              <li class="breadcrumb-item active">Dealers</li>
             </ol>
           </div>
         </div>
@@ -40,6 +27,16 @@ include('includes/header.php');
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            <?php if(isset($_SESSION['message']))
+            { 
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> <?= $_SESSION['message']; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+                unset($_SESSION['message']);
+            }?>    
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All Users</h3>
@@ -61,7 +58,7 @@ include('includes/header.php');
                   </thead>
                   <tbody>
                   <?php
-                    $user = getAll("users");                 
+                    $user = getAllDealers("users");                 
                     if(mysqli_num_rows($user) > 0)
                     {
                         foreach($user as $row)
@@ -82,8 +79,10 @@ include('includes/header.php');
                                   <i class="fa fa-edit" style="font-size:24px;color:blue;"></i>
                                   </a>
                                 </li>
-                                <li style="padding: 8px;"><a href="user.php?del=<?= $row['id']; ?>"><i class="fa fa-trash" style="font-size:24px;color:red;"></i>
-                                </li>
+                                <form action="code.php" method="post">
+                                    <input type="hidden" name="user_id" value="<?= $row['id']; ?>">
+                                    <button type="submit" class="btn btn-dnager" name="delete_dealer"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
+                                </form>
                               </ul>
                             </td>
                           </tr>
@@ -122,5 +121,4 @@ include('includes/header.php');
     </section>
     <!-- /.content -->
   </div>
-
 <?php include('includes/footer.php'); ?>
