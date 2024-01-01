@@ -59,10 +59,6 @@ include('includes/header.php');
                     </form>
                 </div>
             </div>
-
-        </div>
-    </div>
-</div>
         </div>
     </div>
 </div>

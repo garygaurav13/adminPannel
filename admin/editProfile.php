@@ -90,6 +90,29 @@ include('includes/header.php');
                         echo "Id Missing From URL";
                     }
                 ?>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6"><h4><b>Password</b></h4></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="code.php" method="post">
+                            <input type="hidden" name="userId" value="<?= $data['id']; ?>">
+                        
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="text" name="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="confirmPassword">
+                            </div>
+                            
+                            <button type="submit" name="passwordSubmit" value="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
