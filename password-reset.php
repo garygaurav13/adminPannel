@@ -2,7 +2,6 @@
 session_start();
 $page_title = "Password Reset Form";
 include('includes/header.php'); 
-include('config/dbcon.php');
 ?>
 
 <div class="py-5">

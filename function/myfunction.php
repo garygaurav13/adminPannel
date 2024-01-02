@@ -47,4 +47,20 @@ function getProfile($table, $id)
     $query = "SELECT * FROM $table WHERE id='$id'";
     return $query_run = mysqli_query($con, $query);
 }
+
+
+// Testimonials
+function getalltestimonials($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table ORDER BY id DESC";
+    return $query_run = mysqli_query($con, $query);
+}
+
+function getTestimonialID($table, $id)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE id='$id'";
+    return $query_run = mysqli_query($con, $query);
+}
 ?>

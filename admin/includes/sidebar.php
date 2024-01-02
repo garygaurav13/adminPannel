@@ -1,4 +1,4 @@
-
+<?php $subAdmin = $_SESSION['auth_user']['role']; ?>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -58,12 +58,19 @@
                   <p>All Users</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="subAdmin.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sub-Admin</p>
-                </a>
-              </li>
+              <?php
+                if($subAdmin != "sub-admin")
+                { ?>
+                <li class="nav-item">
+                  <a href="subAdmin.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sub-Admin</p>
+                  </a>
+                </li>
+                <?php 
+                }
+              ?>
+              
             </ul>
           </li>
           <li class="nav-item">
@@ -71,6 +78,15 @@
               <i class="nav-icon fas fa-address-book"></i>
               <p>
                 Dealers
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="testimonials.php" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
+              <p>
+                Testimonials
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

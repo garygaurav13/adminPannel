@@ -67,18 +67,16 @@ elseif(isset($_POST['login_btn']))
         ];
         $_SESSION['role'] = $role;
 
-        if($role == "admin"){
+        if($role == "admin" || $role == "sub-admin"){
             redirect("../admin/index.php", "Welcome To Dashboard");
         }
         else 
         {
             redirect("../index.php", "Logged In Successfully");
         }
-
     }
     else
     {
         redirect("../login.php", "Invalid Credentials");
     }
 }
-?>

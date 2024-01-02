@@ -44,3 +44,4 @@
     </ul>
   </nav>
   <!-- /.navbar -->
+  <?php print_r($_SESSION['auth_user']['role']); ?>

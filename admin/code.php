@@ -68,6 +68,21 @@ elseif(isset($_POST['delete_dealer']))
         redirect("dealers.php", "Something Went Wrong");
     }
 }
+elseif(isset($_POST['delete_testimonial']))
+{
+    $userId = mysqli_real_escape_string($con, $_POST['user_id']);
+
+    $delete_query = "DELETE FROM testimonials WHERE id = '$userId'";
+    $delete_query_run = mysqli_query($con, $delete_query);
+    if($delete_query_run)
+    {
+        redirect("testimonials.php", "Testimonials deleted Successfully");
+    }
+    else
+    {   
+        redirect("testimonials.php", "Something Went Wrong");
+    }
+}
 
 // Create Sub Admin 
 if(isset($_POST['subAdminSubmit']))
@@ -125,5 +140,43 @@ if(isset($_POST['profileSubmit']))
     else
     {
         redirect("editProfile.php?id=$userId", "Something Went Wrong");
+    }
+}
+
+// Create Testimonials
+if(isset($_POST['testimonialSubmit']))
+{
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $status = mysqli_real_escape_string($con, $_POST['status']);
+
+    $insert_query = "INSERT INTO testimonials (`title`, `description`, `status`) VALUES ('$title','$description','$status')";
+    $inser_query_run = mysqli_query($con,$insert_query);
+
+    if($inser_query_run){
+        redirect("createTestimonials.php", "Testimonial Created Successfully");
+    }else {
+        redirect("createTestimonials.php", "Something Went Wrong");
+    }
+}
+elseif(isset($_POST['updateTestimonial']))
+{
+    $title =  mysqli_real_escape_string($con,$_POST['title']);
+    $description =  mysqli_real_escape_string($con,$_POST['description']);
+    $status =  mysqli_real_escape_string($con,$_POST['status']);
+    $userId = mysqli_real_escape_string($con,$_POST['userId']);
+
+    $query_update = "UPDATE testimonials SET `title`='$title', `description`='$description', `status`='$status' WHERE id ='$userId'";
+    // print_r($query_update);
+    // die();
+    $query_update_run = mysqli_query($con, $query_update);
+
+    if($query_update_run)
+    {
+        redirect("edit-testimonial.php?id=$userId", "User Prfile Updated Successfully");
+    }
+    else
+    {
+        redirect("edit-testimonial.php?id=$userId", "Something Went Wrong");
     }
 }
