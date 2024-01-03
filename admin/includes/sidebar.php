@@ -82,9 +82,20 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list-alt"></i>
+              <p>
+                Product Category
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="testimonials.php" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
+              <i class="nav-icon fas fa-quote-left"></i>
               <p>
                 Testimonials
                 <i class="fas fa-angle-left right"></i>
