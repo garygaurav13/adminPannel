@@ -38,13 +38,13 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
+                <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
@@ -59,37 +59,30 @@
                 </a>
               </li>
               <?php
-                if($subAdmin != "sub-admin")
+                if($subAdmin !=="sub-admin")
                 { ?>
-                <li class="nav-item">
-                  <a href="subAdmin.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sub-Admin</p>
-                  </a>
-                </li>
-                <?php 
+                  <li class="nav-item">
+                    <a href="subAdmin.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sub-Admin</p>
+                    </a>
+                  </li>
+                  <?php
                 }
               ?>
-              
             </ul>
           </li>
           <li class="nav-item">
             <a href="dealers.php" class="nav-link">
               <i class="nav-icon fas fa-address-book"></i>
-              <p>
-                Dealers
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Dealers</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list-alt"></i>
-              <p>
-                Product Category
-                <i class="fas fa-angle-left right"></i>
-              </p>
+            <a href="contactUs.php" class="nav-link">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>Contact Us</p>
             </a>
           </li>
 
@@ -98,9 +91,38 @@
               <i class="nav-icon fas fa-quote-left"></i>
               <p>
                 Testimonials
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
+          <hr>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <h5><strong>Country/State</strong></h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Country/State
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="countries.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Country</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="state.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>State</p>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

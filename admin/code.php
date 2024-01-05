@@ -22,8 +22,7 @@ if(isset($_POST['updateStatusRole']))
         redirect("edit-user.php?id=$userId", "Something Went Wrong");
     }
 }
-
-else if(isset($_POST['delete_user']))
+elseif(isset($_POST['delete_user']))
 {
     $userId = mysqli_real_escape_string($con, $_POST['user_id']);
 
@@ -81,6 +80,21 @@ elseif(isset($_POST['delete_testimonial']))
     else
     {   
         redirect("testimonials.php", "Something Went Wrong");
+    }
+}
+elseif(isset($_POST['delete_countries']))
+{
+    $userId = mysqli_real_escape_string($con, $_POST['user_id']);
+
+    $delete_query = "DELETE FROM countries WHERE id = '$userId'";
+    $delete_query_run = mysqli_query($con, $delete_query);
+    if($delete_query_run)
+    {
+        redirect("countries.php", "Country deleted Successfully");
+    }
+    else
+    {   
+        redirect("countries.php", "Something Went Wrong");
     }
 }
 
@@ -173,10 +187,76 @@ elseif(isset($_POST['updateTestimonial']))
 
     if($query_update_run)
     {
-        redirect("edit-testimonial.php?id=$userId", "User Prfile Updated Successfully");
+        redirect("edit-testimonial.php?id=$userId", "Testimonials Updated Successfully");
     }
     else
     {
         redirect("edit-testimonial.php?id=$userId", "Something Went Wrong");
+    }
+}
+
+// Create Countries
+if(isset($_POST['countrySubmit']))
+{
+    $shortname = mysqli_real_escape_string($con, $_POST['shortname']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $phonecode = mysqli_real_escape_string($con, $_POST['phonecode']);
+
+    $insert_query = "INSERT INTO countries (`shortname`, `name`, `phonecode`) VALUES ('$shortname','$name','$phonecode')";
+    $inser_query_run = mysqli_query($con,$insert_query);
+
+    if($inser_query_run){
+        redirect("createCountries.php", "Country Created Successfully");
+    }else {
+        redirect("createCountries.php", "Something Went Wrong");
+    }
+}
+elseif(isset($_POST['stateSubmit']))
+{
+    $shortname = mysqli_real_escape_string($con, $_POST['shortname']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $phonecode = mysqli_real_escape_string($con, $_POST['phonecode']);
+
+    $insert_query = "INSERT INTO states (`shortname`, `name`, `phonecode`) VALUES ('$shortname','$name','$phonecode')";
+    $inser_query_run = mysqli_query($con,$insert_query);
+
+    if($inser_query_run){
+        redirect("createState.php", "State Created Successfully");
+    }else {
+        redirect("createState.php", "Something Went Wrong");
+    }
+}
+elseif(isset($_POST['editCountrySubmit']))
+{
+    $shortname =  mysqli_real_escape_string($con,$_POST['shortname']);
+    $name =  mysqli_real_escape_string($con,$_POST['name']);
+    $phonecode =  mysqli_real_escape_string($con,$_POST['phonecode']);
+    $userId = mysqli_real_escape_string($con,$_POST['userId']);
+
+    $query_update = "UPDATE countries SET `shortname`='$shortname', `name`='$name', `phonecode`='$phonecode' WHERE id ='$userId'";
+    // print_r($query_update);
+    // die();
+    $query_update_run = mysqli_query($con, $query_update);
+
+    if($query_update_run)
+    {
+        redirect("editCountry.php?id=$userId", "Country Updated Successfully");
+    }
+    else
+    {
+        redirect("editCountry.php?id=$userId", "Something Went Wrong");
+    }
+}
+elseif(isset($_POST['createState']))
+{
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $country_id = mysqli_real_escape_string($con, $_POST['country_id']);
+    $insert_query = "INSERT INTO states (`name`, `country_id`) VALUES ('$name','$country_id')";
+    
+    $inser_query_run = mysqli_query($con,$insert_query);
+    if($inser_query_run){
+        redirect("state.php", "Country Created Successfully");
+    }else {
+        redirect("state.php", "Something Went Wrong");
     }
 }

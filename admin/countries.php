@@ -1,9 +1,8 @@
 <?php
 session_start();
-include('../../middleware/adminMiddlewere.php'); 
-include('../includes/header.php');
+include('../middleware/adminMiddlewere.php'); 
+include('includes/header.php');
 ?>
-
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -11,18 +10,18 @@ include('../includes/header.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product Category</h1>
+            <h1>Countries</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Product-Category</li>
+              <li class="breadcrumb-item active">Countries</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-  
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -40,18 +39,16 @@ include('../includes/header.php');
             }?> 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All Users</h3>
+                <h3 class="card-title">Countries</h3>
+                <a href="createCountries.php" class="btn btn-primary" style="float: right; font-size: 19px; font-weight: 700;">Create</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover table-stripe">
                   <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Status</th>
-                    <th>Role</th>
+                    <th>Country Code</th>
+                    <th>Country Name</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Action</th>
@@ -59,50 +56,37 @@ include('../includes/header.php');
                   </thead>
                   <tbody>
                   <?php
-                    $user = getAllUsers("users");                 
+                    $user = getCountries("countries");                 
                     if(mysqli_num_rows($user) > 0)
                     {
                         foreach($user as $row)
                         { ?>
                             <tr>
-                            <td><?= $row['firstname'].' '.$row['lastname'] ?></td>
-                            <td><?= $row['email']; ?></td>
-                            <td><?= $row['phone']; ?></td>
-                            <td><?= $row['status']; ?></td>
-                            <td><?= $row['role']; ?></td>
-                            <td><?= $row['created_at']; ?></td>
-                            <td><?= $row['updated_at'] ?></td>
-                            <td>
-                              <ul style="display: flex;list-style: none;">
-                                <li style="padding: 8px;">
-                                  <a  class="" 
-                                  href="edit-user.php?id=<?= $row['id']; ?>"> 
-                                  <i class="fa fa-edit" style="font-size:24px;color:blue;"></i>
-                                  </a>
-                                </li>
-                                <form action="code.php" method="post">
-                                    <input type="hidden" name="user_id" value="<?= $row['id']; ?>">
-                                    <button type="submit" class="btn btn-dnager" name="delete_user"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
-                                </form>
-                              </ul>
-                            </td>
+                                <td><?= $row['shortname']; ?></td>
+                                <td><?= $row['name']; ?></td>
+                                <td><?= $row['created_at']; ?></td>
+                                <td><?= $row['updated_at']; ?></td>
+                                <td>
+                                <ul style="display: flex;list-style: none;">
+                                    <li style="padding: 8px;">
+                                    <a class="" href="editCountry.php?id=<?= $row['id']; ?>"><i class="fa fa-edit" style="font-size:24px;color:blue;"></i></a>
+                                    </li>
+                                    <form action="code.php" method="post">
+                                        <input type="hidden" name="user_id" value="<?= $row['id']; ?>">
+                                        <button type="submit" class="btn btn-dnager" name="delete_countries"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
+                                    </form>
+                                </ul>
+                                </td>
                           </tr>
                         <?php
                         }
-                    }
-                    else
-                    {
-
                     }
                     ?>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Status</th>
-                    <th>Role</th>
+                    <th>Country Code</th>
+                    <th>Country Name</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Action</th>

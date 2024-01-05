@@ -63,11 +63,12 @@ elseif(isset($_POST['login_btn']))
         $_SESSION['auth_user']= [
             'firstname' => $username,
             'email' => $useremail,
-            'id' => $id
+            'id' => $id,
+            'role' => $role
         ];
         $_SESSION['role'] = $role;
 
-        if($role == "admin" || $role == "sub-admin"){
+        if($_SESSION['auth_user']['role']  == "admin" || $_SESSION['auth_user']['role'] == "sub-admin"){
             redirect("../admin/index.php", "Welcome To Dashboard");
         }
         else 
