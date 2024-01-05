@@ -84,5 +84,12 @@ function getState($table)
     $query ="SELECT * FROM $table";
     return $query_run = mysqli_query($con, $query);
 }
+function getStateCountry($table)
+{
+    global $con;
+    $query = "SELECT countries.name as countries_name, $table.name FROM countries LEFT JOIN $table ON countries.id = $table.country_id ORDER BY countries_name";
+    // SELECT * FROM countries LEFT JOIN states ON countries.id = states.country_id ORDER BY countries.name;
+    return $query_run = mysqli_query($con, $query);
+}
 
 ?>

@@ -21,7 +21,7 @@ include('includes/header.php');
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6"><h4><b>State</b></h4></div>
-                            <div class="col-md-6"><a href="countries.php" class="btn btn-primary" style="float: right; font-size: 19px; font-weight: 700;">View</a></div>
+                            <!-- <div class="col-md-6"><a href="countries.php" class="btn btn-primary" style="float: right; font-size: 19px; font-weight: 700;">View</a></div> -->
                         </div>
                     </div>
                     <div class="card-body">
@@ -48,7 +48,7 @@ include('includes/header.php');
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-md-6"><h4><b>States</b></h4></div>
+                            <div class="col-md-6"><h4>States List With Countries</h4></div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -60,15 +60,15 @@ include('includes/header.php');
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $user = getState("states");  
+                            <?php $user = getStateCountry("states");  
+                            // $test = mysqli_fetch_assoc($user);
                             if(mysqli_num_rows($user) > 0)
                             {
                                 foreach($user as $row) { 
                                 ?>
                                 <tr>
-                                    <td><?= $row['country_id']; ?></td>
-
-                                    <td><?= $row['name'] ?></td>
+                                    <td><?= $row['name']; ?></td>
+                                    <td><?= $row['countries_name']; ?></td>
                                 </tr>
                                 <?php 
                                 }
