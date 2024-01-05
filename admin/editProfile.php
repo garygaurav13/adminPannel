@@ -3,6 +3,11 @@ session_start();
 include('../middleware/adminMiddlewere.php'); 
 include('includes/header.php');
 ?>
+<style>
+.mb-3, .my-3 {
+    padding-right: 15px;
+}
+</style>
 <div class="wrapper container">
     <div class="py-5">
         <div class="row">

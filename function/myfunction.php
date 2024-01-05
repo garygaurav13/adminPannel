@@ -25,7 +25,6 @@ function getAllUsers($table)
     return $query_run = mysqli_query($con, $query);
 }
 
-
 function getById($table, $id)
 {
     global $con;
@@ -63,4 +62,27 @@ function getTestimonialID($table, $id)
     $query = "SELECT * FROM $table WHERE id='$id'";
     return $query_run = mysqli_query($con, $query);
 }
+
+//Contact-Us Details
+function getContactUs($table) 
+{
+    global $con;
+    $query = "SELECT * FROM $table";
+    return $query_run = mysqli_query($con, $query);
+}
+
+// countries and State
+function getCountries($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table";
+    return $query_run = mysqli_query($con, $query);
+}
+function getState($table)
+{
+    global $con;
+    $query ="SELECT * FROM $table";
+    return $query_run = mysqli_query($con, $query);
+}
+
 ?>
